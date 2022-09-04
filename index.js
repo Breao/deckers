@@ -20,7 +20,7 @@ class Deck {
 
   /**
    *
-   * @param {*} method
+   * @param {String} method
    */
   shuffle(method = "fy") {
     const res = [];
@@ -48,7 +48,8 @@ class Deck {
 
   /**
    *
-   * @param {*} amount
+   * @param {number} amount
+   * @return {array}
    */
   drawCards(amount = 1) {
     const res = [];
