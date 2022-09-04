@@ -12,7 +12,7 @@ class Deck {
     } else {
       const fs = require("fs");
       const path = require("path");
-      const defaultFile = path(__dirname, "assets", "default_cards.txt");
+      const defaultFile = path.join(__dirname, "assets", "default_cards.txt");
       this.cards = JSON.parse(fs.readFileSync(defaultFile));
     }
   }

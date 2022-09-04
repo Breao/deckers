@@ -1,0 +1,5 @@
+classes
+node_modules
+scripts
+.env
+.eslint*
