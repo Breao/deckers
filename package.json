@@ -3,10 +3,16 @@
   "version": "0.0.1",
   "description": "Package to manage a deck of objects",
   "main": "index.js",
+  "homepage": "https://github.com/Breao/deckers",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Breao/deckers.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index",
-    "npmTest": "npm link"
+    "npmTest": "npm link",
+    "push": "npm publish"
   },
   "author": "Brent Nagareda",
   "license": "MIT",
