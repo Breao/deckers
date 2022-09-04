@@ -3,3 +3,5 @@ node_modules
 scripts
 .env
 .eslint*
+.git*
+index_backup.js
