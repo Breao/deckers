@@ -1,0 +1,21 @@
+{
+  "name": "deckers",
+  "version": "0.0.1",
+  "description": "Package to manage a deck of objects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index",
+    "npmTest": "npm link"
+  },
+  "author": "Brent Nagareda",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.23.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.5",
+    "eslint-plugin-promise": "^6.0.1"
+  }
+}
