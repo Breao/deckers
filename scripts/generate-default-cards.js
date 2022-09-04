@@ -32,7 +32,7 @@ const extraTypes = [{
   display: "J",
   icon: ""
 }];
-for (let x = 2; x <= 9; x++) {
+for (let x = 2; x <= 10; x++) {
   for (let y = 0; y < suits.length; y++) {
     deck.push({
       suit: suits[y].type,
