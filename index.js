@@ -28,7 +28,8 @@ class Deck {
       case "fy": // fisher-yates
         const min = 1;
         for (let len = this.cards.length; len > 0; len--) {
-          const rand = Math.floor(Math.random() * (len - min + 1));
+          // const rand = Math.floor(Math.random() * (len - min + 1));
+          const rand = this.randomNumber(len, min);
           res.push(this.cards[rand]);
           this.cards.splice((rand), 1);
         }
@@ -69,11 +70,23 @@ class Deck {
   drawRandCards(amount = 1) {
     const res = [];
     for (let x = 0; x < amount; x++) {
-      const rand = Math.floor(Math.random() * (this.cards.length)) + 1;
-      res.push(this.cards[0]);
-      this.cards.splice(0, 1);
+      const rand = this.randomNumber(this.cards.length, 1);
+      res.push(this.cards[rand]);
+      this.cards.splice(rand, 1);
     }
     return res;
+  }
+
+  // utilities
+
+  /**
+   *
+   * @param {number} max
+   * @param {number} min
+   * @return {number}
+   */
+  randomNumber(max, min = 1) {
+    return Math.floor(Math.random() * (max - min + 1));
   }
 }
 
