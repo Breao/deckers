@@ -26,8 +26,9 @@ class Deck {
     const res = [];
     switch (method) {
       case "fy": // fisher-yates
+        const min = 1;
         for (let len = this.cards.length; len > 0; len--) {
-          const rand = Math.floor(Math.random() * (len - 1) + 1) - 1;
+          const rand = Math.floor(Math.random() * (len - min + 1)) + min;
           res.push(this.cards[rand]);
           this.cards.splice((rand), 1);
         }
@@ -42,7 +43,7 @@ class Deck {
         this.cards = res;
         break;
       default:
-        console.log("not a valid shuffle option");
+        throw new Error("Not a valid shuffle option: " + method);
     }
   }
 
