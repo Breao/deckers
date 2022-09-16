@@ -21,30 +21,41 @@ class Deck {
   /**
    *
    * @param {String} method
+   * @param {array} cards Optional: cards to shuffle. Shuffles deck if not used
    */
-  shuffle(method = "fy") {
+  shuffle(method = "fy", cards = []) {
     const res = [];
+    let hasCards = true;
+    if (cards.length == 0) {
+      cards = this.cards;
+      hasCards = false;
+    }
     switch (method) {
       case "fy": // fisher-yates
         const min = 1;
-        for (let len = this.cards.length; len > 0; len--) {
+        for (let len = cards.length; len > 0; len--) {
           // const rand = Math.floor(Math.random() * (len - min + 1));
           const rand = this.randomNumber(len, min);
-          res.push(this.cards[rand]);
-          this.cards.splice((rand), 1);
+          res.push(cards[rand]);
+          cards.splice((rand), 1);
         }
-        this.cards = res;
         break;
       case "reverse":
-        while (this.cards.length > 0) {
-          const len = this.cards.length;
-          res.push(this.cards[(len - 1)]);
-          this.cards.splice((len - 1), 1);
+        while (cards.length > 0) {
+          const len = cards.length;
+          res.push(cards[(len - 1)]);
+          cards.splice((len - 1), 1);
         }
-        this.cards = res;
         break;
+      case "cut":
+        throw new Error("not implemented");
       default:
         throw new Error("Not a valid shuffle option: " + method);
+    }
+    if (hasCards) {
+      return res;
+    } else {
+      this.cards = res;
     }
   }
 
@@ -75,6 +86,32 @@ class Deck {
       this.cards.splice(rand, 1);
     }
     return res;
+  }
+
+  /**
+   *
+   * @param {array} cards Array of cards to put back in the deck
+   * @param {string} type Method of putting the cards back
+   * @param {string} shuffle If type is shuffle, what method of shuffle
+   * @return {boolean}
+   */
+  returnToDeck(cards = [], type = "shuffle", shuffle = "fy") {
+    console.log("call returnToDeck");
+    switch (type) {
+      case "shuffle":
+        this.cards = cards.concat(this.cards);
+        this.shuffle(shuffle);
+        break;
+      case "onTop":
+        this.cards = cards.concat(this.cards);
+        break;
+      case "onBot":
+        this.cards = this.cards.concat(cards);
+        break;
+      default:
+        throw new Error("Not a valid option to return cards");
+    }
+    return true;
   }
 
   // utilities
