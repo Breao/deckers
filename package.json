@@ -9,7 +9,7 @@
     "url": "git+https://github.com/Breao/deckers.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nodemon scripts/test.js",
     "dev": "nodemon index",
     "npmTest": "npm link",
     "push": "npm publish"
