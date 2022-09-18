@@ -1,6 +1,6 @@
 {
   "name": "deckers",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Package to manage a deck of objects",
   "main": "index.js",
   "homepage": "https://github.com/Breao/deckers",
