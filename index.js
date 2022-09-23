@@ -22,6 +22,7 @@ class Deck {
    *
    * @param {String} method
    * @param {array} cards Optional: cards to shuffle. Shuffles deck if not used
+   * @return {array}
    */
   shuffle(method = "fy", cards = []) {
     const res = [];
